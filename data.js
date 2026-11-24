@@ -37,8 +37,10 @@ const D = {
     {name:"Mike Mkwate",role:"Player"},{name:"Mclean Mwale",role:"Goalkeeper"}
   ],
   sponsors:[
-    {n:"FDH Bank",tier:"League partner",logo:""},{n:"Masters Finance",tier:"Shirt partner",logo:""},
-    {n:"Chibiso Motors",tier:"Player development partner",logo:""},{n:"Masters Group",tier:"Club backer",logo:""}
+    {n:"Master Group of Companies",tier:"Club backer",logo:"master-group-logo.png",url:"https://www.facebook.com/MSGROUPMW/"},
+    {n:"MWOS — Moors World of Sport",tier:"Sports partner",logo:"mwos-logo.png",url:"https://mwos.bet"},
+    {n:"Karls Solutions",tier:"Club partner",logo:"karls-solutions-logo.png",url:"https://www.facebook.com/karlsolutions/"},
+    {n:"Chisomo Electronics Malawi",tier:"Club partner",logo:"chisomo-electronics-logo.png",url:"#contact"}
   ],
   staff:[
     {name:"Peter Mponda",role:"Head Coach",photo:COACH},
@@ -60,5 +62,39 @@ const D = {
     "The club has reported investing in players' futures through a vocational training partnership with Chibiso Motors.",
     "Masters Security FC is reported to have won the Carlsberg Cup in 2018. Historical details should be verified with the club."
   ],
-  stats:[["K1.5M","Reported training value per player"],["K350K","Reported Player of the Month prize"],["36K","Reported Facebook followers"],["2018","Reported Carlsberg Cup win"]]
+  stats:[]
 };
+
+// Turn sponsor cards into linked logo cards after the static renderer creates them.
+(() => {
+  const enhance = () => {
+    document.querySelectorAll(".partner").forEach(card => {
+      if (card.dataset.linked === "true") return;
+      const sponsor = (D.sponsors || []).find(item => item.n === card.querySelector(".partner-name")?.textContent?.trim());
+      if (!sponsor) return;
+      const anchor = document.createElement("a");
+      anchor.className = "partner partner-link";
+      anchor.href = sponsor.url;
+      if (/^https:\/\//.test(sponsor.url)) {
+        anchor.target = "_blank";
+        anchor.rel = "noopener noreferrer";
+      }
+      const image = document.createElement("img");
+      image.src = sponsor.logo;
+      image.alt = sponsor.n;
+      image.loading = "lazy";
+      image.onerror = () => { image.replaceWith(document.createTextNode(sponsor.n)); };
+      const name = card.querySelector(".partner-name");
+      if (name) name.replaceChildren(image);
+      anchor.append(...card.childNodes);
+      anchor.dataset.linked = "true";
+      card.replaceWith(anchor);
+    });
+    document.querySelectorAll(".section-dark .stats").forEach(stats => stats.closest(".section-dark")?.remove());
+  };
+  const styles = document.createElement("style");
+  styles.textContent = ".partner-link { color: inherit; text-decoration: none; cursor: pointer; } .partner-link:hover { transform: translateY(-2px); }";
+  document.head.append(styles);
+  new MutationObserver(enhance).observe(document.documentElement, {childList:true, subtree:true});
+  document.addEventListener("DOMContentLoaded", enhance, {once:true});
+})();
