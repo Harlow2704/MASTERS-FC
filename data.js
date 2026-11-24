@@ -1,4 +1,4 @@
-/* Masters FC content. Replace provisional contact details, fixtures and claims with club-confirmed information. */
+/* Masters Security FC content. Replace provisional contact details, fixtures and claims with club-confirmed information. */
 const COACH = "coach.jpg";
 const PH = {
   hero:"hero (1).jpg", about:"team (1).jpg", stadium:"mitundu.jpg", train:"training.jpg",
@@ -41,7 +41,7 @@ const D = {
     {n:"Chibiso Motors",tier:"Player development partner",logo:""},{n:"Masters Group",tier:"Club backer",logo:""}
   ],
   staff:[
-    {name:"Nelson Mphande",role:"Head Coach",photo:COACH},
+    {name:"Peter Mponda",role:"Head Coach",photo:COACH},
     {name:"Amidu Mustafa",role:"Assistant Coach",photo:""},
     {name:"Albert Tseka",role:"Tech Manager",photo:""},
     {name:"Dustin Mzokomela",role:"Tech Director",photo:""},
