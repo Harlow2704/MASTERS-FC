@@ -1,9 +1,9 @@
 /* Masters FC content. Replace provisional contact details, fixtures and claims with club-confirmed information. */
 const COACH = "coach.jpg";
 const PH = {
-  hero:"hero.jpg", about:"about.jpg", stadium:"stadium.jpg", train:"training.jpg",
-  celebrate:"action-right.jpg", act:"action-tackle.jpg", act2:"action-player.jpg",
-  team16:"team.jpg", coach16:"coach-wide.jpg"
+  hero:"hero (1).jpg", about:"team (1).jpg", stadium:"mitundu.jpg", train:"training.jpg",
+  celebrate:"mitundu.jpg", act:"warmup-portrait.jpg", act2:"action-player.jpg",
+  team16:"team (1).jpg", coach16:"coach-wide (1).jpg"
 };
 const D = {
   club: {
