@@ -7,7 +7,7 @@ const PH = {
 };
 const D = {
   club: {
-    name:"Masters Security FC", city:"Lilongwe, Malawi", league:"FDH Bank Premiership", season:"2026/27",
+    name:"Masters Security FC", logo:"masters_fc_logo.svg", city:"Lilongwe, Malawi", league:"FDH Bank Premiership", season:"2026/27",
     tagline:"My People, My Football", motto:"My People, My Football",
     intro:"Masters Security FC are a Lilongwe-based club competing in Malawi's top flight and the FDH Bank Premiership.",
     ground:"Nankhaka Stadium, Lilongwe (please confirm)", email:"info@example.com (TBC)", phone:"+265 000 000 000 (TBC)",
